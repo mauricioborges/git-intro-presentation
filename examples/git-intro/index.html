@@ -1,0 +1,261 @@
+<!doctype html>
+
+<!--
+  A presentation done entirely in Markdown, as found in extras/markdown/.
+  
+  By: @henrikingo
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Introdução ao Git| Maurício Borges Silva @silvamauriciob</title>
+    
+    <meta name="description" content="Introdução ao git em português" />
+    <meta name="author" content="Mauricio Borges" />
+    <meta name="author" content="Eduardo Kasper" />
+    <link rel="stylesheet" href="../../extras/highlight/styles/github.css">
+
+        
+    <!--
+        Styles specific for this example presentation. 
+    -->
+    <link href="css/markdown-slides.css" rel="stylesheet" />
+    <link href="css/devopsy.css" rel="stylesheet" />
+    <link href="css/effects.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress" data-transition-duration="1000">
+
+<div id="markdown" class="step slide markdown" data-rel-x="0" data-rel-y="900">
+# Introdução ao Git
+
+-----
+
+## O que é versionamento centralizado?
+
+![Diagrama de um versionamento centralizado](https://git-scm.com/book/en/v2/images/local.png)
+
+> * servidor contém todas as versões
+> * usuários (nós) baixamos a última versão
+> * lembra vagamente a ideia de criar pastas com datas
+-----
+
+## O que é versionamento distribuído?
+
+![Diagrama de um versionamento distribuído](https://git-scm.com/book/en/v2/images/distributed.png)
+
+> * servidor contém todas as versões
+> * usuários (nós) também temos todas as versões
+> * pensado para trabalhar distribuído/sem internet sempre
+-----
+## Instalando
+
+* Download a partir de https://git-scm.com/downloads
+* funciona em Windows, Mac e Linux
+
+-----
+## Instalando
+
+Para testar, digite no seu terminal e tecle enter:
+
+        git --version 
+
+Alguma versão maior que 2.0 deve aparecer, como por exemplo `git version 2.14.1`
+
+-----
+
+## Configurando meu usuário
+
+* você precisa se identificar para o mundo
+* o e-mail é o meio utilizado
+
+-----
+## Configurando meu usuário
+
+        git config --global user.name Mauricio Borges Silva
+        git config --global user.mail mbsilva@thoughtworks.com
+-----
+
+## Criando meu primeiro projeto
+
+* todo projeto criado é um repositório
+* um repositório é, em suma, o conjunto de alterações efetuadas no conteúdo de uma pasta (histórico)
+* o git consegue saber como lidar com esse fato, mesmo que pessoas trabalhem em paralelo nos mesmos arquivos
+
+-----
+## Criando meu primeiro projeto
+
+        git init meu-primeiro-projeto # cria uma pasta configurada para lidar com git
+        cd meu-primeiro-projeto       # navega para a pasta
+        ls -a                         # lista arquivos ocultos
+-----
+## Versionando meus arquivos
+
+        touch index.html              # cria um arquivo vazio
+        atom index.html               # edita o arquivo criado com o Atom, coloca um hello world :p
+-----
+## Versionando meus arquivos
+
+        git status                    # exibe o status do repositório atual
+
+-----
+## Versionando meus arquivos
+
+        git add index.html            # exibe o status do repositório atual
+
+
+-----
+## Versionando meus arquivos
+
+![Os diferentes estágios de um arquivo](https://git-scm.com/book/en/v2/images/areas.png)
+> * commited: está salvo na base de dados local (em resumo, dentro da pasta .git num formato que a ferramenta entende)
+> * modified: o arquivo foi alterado
+> * staged: o arquivo foi alterado, e o git incluirá tais mudanças no próximo commit efetuado
+-----
+
+## Versionando meus arquivos
+
+        git status                    # exibe o status do repositório atual
+
+-----
+
+## Versionando meus arquivos
+
+        git commit -m "adicionando o primeiro arquivo do meu projeto"
+
+-----
+
+## Verificando minhas alterações
+
+        git log                      # exibe os commits efetuados
+-----
+## Acabou!
+
+-----
+
+## ???????
+-----
+## Mas e como que eu compartilho essas alterações com as pessoas?
+-----
+## Utilizando repositórios de outras pessoas
+
+* relembrando: sempre temos um repositório inteiro na máquina, todas os commits criados
+* se eu quiser usar um repositório de outra pessoa (*remoto*), vou precisar *clonar* todo o conteúdo dele (arquivos, histórico)
+* de alguma maneira (http, https, protocolo git, file...) eu preciso ter acesso de leitura ao repositório que quero clonar
+
+-----
+## Utilizando repositórios de outras pessoas
+
+
+        git clone https://github.com/fabrica-de-software-2018/amigos-frontend.git
+        cd amigos-frontend
+
+Este link dá um ajuda: http://bit.ly/a-fabrica-2018
+-----
+
+## Utilizando repositórios de outras pessoas
+
+        git remote -v               # lista todos os repositórios remotos aos quais este está relacionado
+-----
+
+# Exercício!
+
+Mudar o título da página
+-----
+## Utilizando repositórios de outras pessoas
+
+* Após commitar, você precisa enviar as alterações para este usuário (ou servidor) remoto
+* desta forma você compartilha seu código com outras pessoas
+
+        git push                     # "empurrar" suas alterações para o usuário remoto
+
+-----
+## Utilizando repositórios de outras pessoas
+
+* é importante que você também tenha acesso ao repositório
+* decidam na sorte quem vai ganhar acesso primeiro 
+-----
+# Agora todo mundo pode ter acesso :p
+-----
+## Utilizando repositórios de outras pessoas
+
+* Nem sempre dá certo, afinal outras pessoas podem ter efetuado alterações nesse meio tempo
+* é através desse mecanismo que o git garante que ao enviar (fazer o push) suas alterações, você não danifica a alteração de outrem
+* você precisa buscar as alterações novas do repositório:
+
+        git pull                     # "puxar" alterações do usuário remoto
+-----
+# Conflito!
+-----
+## Referências/Materiais de apoio:
+
+* https://services.github.com/on-demand/downloads/pt_BR/github-git-cheat-sheet.pdf
+* https://git-scm.com/book/pt-br/v2
+
+# Perguntas?
+
+# Perguntas!
+* e se eu quiser testar uma coisa diferente no código sem estragar os commits que fiz?
+* e se eu quiser apagar todas as mudanças locais?
+* e se eu quiser reverter o que fiz, quiser voltar atrás?
+* ...
+
+-----
+# Agora podemos tentar colocar o projeto de vocês no git, o que vocês acham?
+
+</div>
+</div>
+<script type="text/javascript">
+var enableBwCss = function(){
+    disableDevopsCss();
+    disableEffectsCss();
+};
+
+var enableDevopsCss = function(){
+    document.body.classList.add("devopsy");
+    disableEffectsCss();
+};
+
+var disableDevopsCss = function(){
+    document.body.classList.remove("devopsy");
+};
+
+var enableEffectsCss = function(){
+    document.body.classList.add("effects");
+    disableDevopsCss();
+};
+
+var disableEffectsCss = function(){
+    document.body.classList.remove("effects");
+};
+</script>
+
+
+<div id="impress-toolbar"></div>
+<div id="impress-help"></div>
+
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js and markdown.js from extras.
+     See also src/plugins/extras/extras.js -->
+<script type="text/javascript" src="../../extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../../extras/mermaid/mermaid.min.js"></script>
+<script type="text/javascript" src="../../extras/markdown/markdown.js"></script>
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. 
+-->
+<script type="text/javascript" src="../../js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
