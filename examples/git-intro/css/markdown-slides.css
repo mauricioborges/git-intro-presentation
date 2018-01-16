@@ -63,7 +63,7 @@ body {
 
 .step {
     position: relative;
-    width: 900px;
+    width: 1600px;
     height: 700px;
     padding: 40px 60px;
     margin: 20px auto;
@@ -110,7 +110,7 @@ li {
 
 /* Highlight.js used for coloring pre > code blocks. */
 pre > code {
-    font-size: 14px;
+    font-size: 18pt;
     text-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
@@ -160,7 +160,7 @@ strike {
 }
 
 img {
-    width: 300px;
+    width: 700px;
     float: right;
     margin-left:   40px;
     margin-right:   0px;
